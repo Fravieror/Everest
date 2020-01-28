@@ -1,0 +1,55 @@
+<div class="section section-buttons" >
+    <form #authForm="ngForm" (ngSubmit)="authForm.invalid? false : GetTokenAuth()">
+        <div class="container">
+            <div class="tim-title">
+                <h2 >API Key</h2>
+            </div>
+            <div id="buttons">
+                <div class="tim-title">
+                    <h3>Datos de conexión
+                        <br/>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <small>ApiKey</small>
+                                <div class="form-group" [ngClass]="{'has-danger': !apiKey}" style="background-color: transparent !important">                                        
+                                    <input type="text"  class="form-control" style="background-color: transparent !important" autocomplete="off" [ngClass]="{'form-control-danger': !apiKey}" placeholder="ApiKey" [(ngModel)]="apiKey" name="textApiKey" required maxlength="50">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <small>ApiSecret</small>
+                                <div class="form-group" [ngClass]="{'has-danger': !apiSecret}">
+                                    <textarea type="text" class="form-control" autocomplete="off" [ngClass]="{'form-control-danger': !apiSecret}" placeholder="ApiSecret" [(ngModel)]="apiSecret" rows="3" name="textApiSecret" required maxlength="200"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="submit" class="btn btn-danger btn-danger" value="Obtener token de autenticación"
+                                 [disabled]="authForm.invalid">                                    
+                            </div>
+                        </div>
+                        <div class="row" id="divReponse">
+                            <div class="col-sm-12">
+                                <small>Token de autenticación</small>
+                                <div class="form-group">
+                                    <textarea name="textarea" class="form-control" placeholder="Token de autenticación" rows="4" [(ngModel)]="token" name="token" disabled></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <small>Vencimiento del token</small>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Vencimiento del token" [(ngModel)]="expiration" name="expiration" disabled>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <small>URL de accesso</small>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="URL de accesso" [(ngModel)]="url" name="url" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
